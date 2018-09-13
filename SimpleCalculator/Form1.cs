@@ -148,6 +148,30 @@ namespace SimpleCalculator
             txtInput.Text = string.Empty;
         }
 
+        private void btnHalf_Click(object sender, EventArgs e)
+        {
+            operand1 = txtInput.Text;
+            operation = '2';
+            txtInput.Text = string.Empty;
+
+        }
+
+        private void btnQuarter_Click(object sender,EventArgs e)
+        {
+            operand1 = txtInput.Text;
+            operation = '4';
+            txtInput.Text = string.Empty;
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            double opr1;
+            if(double.TryParse(txtInput.Text, out opr1))
+            {
+                txtInput.Text = (Math.Sqrt(opr1)).ToString();
+            
+            }
+        }
         private void btnEqual_Click(object sender, EventArgs e)
         {
             operand2 = txtInput.Text;
@@ -178,8 +202,19 @@ namespace SimpleCalculator
                     else
                     {
                         MessageBox.Show("Can't divide by zero");
+
                     }
                     break;
+                case '2':
+                    result = (0.5 * opr1).ToString();
+                    break;
+                case '4':
+                    result = (0.25 * opr1).ToString();
+                    break;
+                case 's':
+                    result = (Math.Sqrt(opr1)).ToString();
+                    break;
+                
             }
 
             txtInput.Text = result.ToString();
